@@ -72,6 +72,11 @@ namespace Kesomannen.RepoProjectPatcher.Editor {
                     { "name", assembly },
                     { "references", dependencies }
                 };
+
+                if(!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
                 
                 var json = JsonConvert.SerializeObject(asmDef, Formatting.Indented);
                 File.WriteAllText(asmdefPath, json);
